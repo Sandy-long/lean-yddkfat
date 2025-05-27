@@ -45,11 +45,25 @@
       font-size: 1.2rem;
       max-width: 100%;
     }
-    .summary {
+    .summary, .references {
       background-color: #f7f7f7;
       padding: 1rem;
       border-left: 4px solid #3498db;
-      margin-top: 2rem;
+      margin: 0;               /* 无上下间距，紧贴 */
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #2c3e50;
+    }
+    .references h3 {
+      margin: 0 0 0.5rem 0;
+      font-weight: 600;
+    }
+    .references ul {
+      padding-left: 1.4rem;
+      margin: 0;
+    }
+    .references li {
+      margin-bottom: 0.6rem;
     }
   </style>
   <script>
@@ -114,6 +128,16 @@
       <li>高胰岛素 → 抑制脂肪分解 + 促进脂肪合成</li>
       <li>脂肪积聚 → 炎症激活 → 胰岛素抵抗加剧</li>
       <li>胰岛素抵抗 → 血糖更高 → 胰岛素更高</li>
+    </ul>
+  </div>
+
+  <div class="references">
+    <h3>参考文献</h3>
+    <ul>
+      <li>Samuel VT, Shulman GI. The pathogenesis of insulin resistance: integrating signaling pathways and substrate flux. J Clin Invest. 2018.</li>
+      <li>Perry RJ, Shulman GI. Insulin Resistance: Mechanisms, Syndromes, and Implications. N Engl J Med. 2020.</li>
+      <li>Ye R, Scherer PE. Adiponectin, driver or passenger on the road to insulin sensitivity?. Mol Metab. 2021.</li>
+      <li>Gonzalez-Muniesa P, et al. Obesity biology and strategies for prevention and management of metabolic syndrome. Nat Rev Endocrinol. 2022.</li>
     </ul>
   </div>
 
