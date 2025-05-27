@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>胰岛素与脂肪代谢的恶性循环</title>
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true });
+  </script>
+  <style>
+    body {
+      font-family: "Helvetica Neue", sans-serif;
+      padding: 2rem;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: auto;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+    .mermaid {
+      margin-top: 2rem;
+    }
+    .summary {
+      background-color: #f7f7f7;
+      padding: 1rem;
+      border-left: 4px solid #3498db;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>胰岛素与脂肪代谢的恶性循环</h1>
+
+  <p>
+    高血糖 → 胰岛素分泌升高（高胰岛素血症），胰岛素对脂肪细胞具有双重作用：
+  </p>
+  <ul>
+    <li><strong>抑制脂肪分解：</strong> 脂肪细胞不释放脂肪酸</li>
+    <li><strong>促进脂肪合成：</strong> 糖转脂，脂肪酸合成增强</li>
+  </ul>
+  <p>
+    最终导致脂肪堆积，形成代谢性恶性循环。以下是完整机制图示：
+  </p>
+
+  <div class="mermaid">
+    flowchart TD
+      A[血糖升高] --> B[胰岛素升高（高胰岛素血症）]
+      B --> C1[↓ 脂肪分解<br>脂肪细胞不释放脂肪酸]
+      B --> C2[↑ 脂肪合成<br>糖转脂、脂肪酸合成增强]
+      C1 & C2 --> D[脂肪堆积增加<br>尤其是内脏脂肪]
+      D --> E[脂肪细胞分泌炎性因子]
+      E --> F[加重胰岛素抵抗]
+      F --> A
+  </div>
+
+  <div class="summary">
+    <h3>总结：胰岛素越高，脂肪越堆，形成恶性循环</h3>
+    <ul>
+      <li>高血糖 → 高胰岛素</li>
+      <li>高胰岛素 → 抑制脂肪分解 + 促进脂肪合成</li>
+      <li>脂肪积聚 → 炎症激活 → 胰岛素抵抗加剧</li>
+      <li>胰岛素抵抗 → 血糖更高 → 胰岛素更高</li>
+    </ul>
+  </div>
+
+  
+
+</body>
+</html>
