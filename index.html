@@ -9,19 +9,41 @@
     mermaid.initialize({ startOnLoad: true });
   </script>
   <style>
+    * {
+      box-sizing: border-box;
+    }
+    html, body {
+      margin: 0;
+      padding: 0;
+    }
     body {
       font-family: "Helvetica Neue", sans-serif;
-      padding: 2rem;
+      padding: 0 2rem 2rem 2rem;
       line-height: 1.6;
       max-width: 800px;
       margin: auto;
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
     }
     h1 {
       text-align: center;
       color: #2c3e50;
+      margin: 0;
+      padding: 2rem 1rem;
+    }
+    .header-bg {
+      background-color: #f7f7f7;
+      border-bottom: 4px solid #3498db;
+      width: 100vw;
+      margin-left: calc(-50vw + 50%);
     }
     .mermaid {
-      margin-top: 2rem;
+      margin: 3rem auto 0;
+      text-align: center;
+      font-size: 1.2rem;
+      max-width: 100%;
     }
     .summary {
       background-color: #f7f7f7;
@@ -30,10 +52,38 @@
       margin-top: 2rem;
     }
   </style>
+  <script>
+    // 禁止右键、选择、复制
+    document.addEventListener('contextmenu', e => e.preventDefault());
+    document.addEventListener('selectstart', e => e.preventDefault());
+    document.addEventListener('copy', e => e.preventDefault());
+
+    // 禁用常用快捷键（Ctrl+U、Ctrl+C、Ctrl+S、F12 等）
+    document.addEventListener('keydown', function (e) {
+      if (
+        (e.ctrlKey || e.metaKey) && ['c', 'u', 's', 'p'].includes(e.key.toLowerCase()) || 
+        ['F12', 'PrintScreen'].includes(e.key)
+      ) {
+        e.preventDefault();
+      }
+    });
+
+    // 检测调试器（部分浏览器有效）
+    setInterval(() => {
+      const before = new Date();
+      debugger;
+      const after = new Date();
+      if (after - before > 100) {
+        document.body.innerHTML = '<h1 style="text-align:center;color:red;">已检测到调试器，页面已被锁定</h1>';
+      }
+    }, 1000);
+  </script>
 </head>
 <body>
 
-  <h1>胰岛素与脂肪代谢的恶性循环</h1>
+  <div class="header-bg">
+    <h1>胰岛素与脂肪代谢的恶性循环</h1>
+  </div>
 
   <p>
     高血糖 → 胰岛素分泌升高（高胰岛素血症），胰岛素对脂肪细胞具有双重作用：
@@ -66,8 +116,6 @@
       <li>胰岛素抵抗 → 血糖更高 → 胰岛素更高</li>
     </ul>
   </div>
-
-  
 
 </body>
 </html>
