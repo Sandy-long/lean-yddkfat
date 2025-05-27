@@ -49,7 +49,7 @@
       background-color: #f7f7f7;
       padding: 1rem;
       border-left: 4px solid #3498db;
-      margin: 0;               /* 无上下间距，紧贴 */
+      margin: 0;
       font-size: 1rem;
       line-height: 1.6;
       color: #2c3e50;
@@ -67,12 +67,9 @@
     }
   </style>
   <script>
-    // 禁止右键、选择、复制
     document.addEventListener('contextmenu', e => e.preventDefault());
     document.addEventListener('selectstart', e => e.preventDefault());
     document.addEventListener('copy', e => e.preventDefault());
-
-    // 禁用常用快捷键（Ctrl+U、Ctrl+C、Ctrl+S、F12 等）
     document.addEventListener('keydown', function (e) {
       if (
         (e.ctrlKey || e.metaKey) && ['c', 'u', 's', 'p'].includes(e.key.toLowerCase()) || 
@@ -81,8 +78,6 @@
         e.preventDefault();
       }
     });
-
-    // 检测调试器（部分浏览器有效）
     setInterval(() => {
       const before = new Date();
       debugger;
@@ -103,29 +98,31 @@
     高血糖 → 胰岛素分泌升高（高胰岛素血症），胰岛素对脂肪细胞具有双重作用：
   </p>
   <ul>
-    <li><strong>抑制脂肪分解：</strong> 脂肪细胞不释放脂肪酸</li>
+    <li><strong>抑制脂肪分解（脂肪酸释放）：</strong> 在正常情况下，胰岛素抑制脂肪细胞释放脂肪酸</li>
     <li><strong>促进脂肪合成：</strong> 糖转脂，脂肪酸合成增强</li>
   </ul>
   <p>
-    最终导致脂肪堆积，形成代谢性恶性循环。以下是完整机制图示：
+    但在胰岛素抵抗状态下，尤其是内脏脂肪细胞对胰岛素抑制脂肪酸释放的敏感性下降，导致内脏脂肪异常释放脂肪酸，增加肝脏负担，加重全身胰岛素抵抗，形成恶性循环。以下是完整机制图示：
   </p>
 
   <div class="mermaid">
     flowchart TD
       A[血糖升高] --> B[胰岛素升高（高胰岛素血症）]
-      B --> C1[↓ 脂肪分解<br>脂肪细胞不释放脂肪酸]
-      B --> C2[↑ 脂肪合成<br>糖转脂、脂肪酸合成增强]
+      B --> C1[正常代偿：↓脂肪分解<br>脂肪细胞脂肪酸释放减少]
+      B --> C2[↑脂肪合成<br>糖转脂、脂肪酸合成增强]
       C1 & C2 --> D[脂肪堆积增加<br>尤其是内脏脂肪]
-      D --> E[脂肪细胞分泌炎性因子]
-      E --> F[加重胰岛素抵抗]
-      F --> A
+      D --> E[内脏脂肪异常释放脂肪酸]
+      E --> F[脂肪细胞分泌炎性因子]
+      F --> G[加重胰岛素抵抗]
+      G --> A
   </div>
 
   <div class="summary">
     <h3>总结：胰岛素越高，脂肪越堆，形成恶性循环</h3>
     <ul>
       <li>高血糖 → 高胰岛素</li>
-      <li>高胰岛素 → 抑制脂肪分解 + 促进脂肪合成</li>
+      <li>高胰岛素 → 正常情况下抑制脂肪酸释放 + 促进脂肪合成</li>
+      <li>胰岛素抵抗时，内脏脂肪异常释放脂肪酸，增加肝脏负担</li>
       <li>脂肪积聚 → 炎症激活 → 胰岛素抵抗加剧</li>
       <li>胰岛素抵抗 → 血糖更高 → 胰岛素更高</li>
     </ul>
